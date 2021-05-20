@@ -8,6 +8,13 @@ import java.time.LocalTime;
 import java.time.Period;
 import java.time.temporal.ChronoUnit;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
@@ -16,18 +23,32 @@ import org.springframework.stereotype.Component;
  * @author Diego
  *
  */
+@Entity
+@Table(name = "CLIENTES")
 @Component("unCliente")
 public class Cliente {
+	@Column(name = "tipo_documento")
 	private String tipoDocumento;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "nro_documento")
 	private int nroDocumento;
+	@Column(name = "nombre_apellido")
 	private String nombreApellido;
+	@Column(name = "email")
 	private String email;
+	@Column(name = "password")
 	private String password;
+	@Column(name = "fecha_nacimiento")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaNacimiento;
+	@Column(name = "edad")
 	private int edad;
+	@Column(name = "cod_area_telefono")
 	private int codigoAreaTelefono;
+	@Column(name = "nro_telefono")
 	private int nroTelefono;
+	@Column(name = "fecha_ultima_compra")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaUltimaCompra;
 	
