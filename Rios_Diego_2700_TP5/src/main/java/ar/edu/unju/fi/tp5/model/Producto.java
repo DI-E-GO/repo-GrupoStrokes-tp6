@@ -3,18 +3,34 @@
  */
 package ar.edu.unju.fi.tp5.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.springframework.stereotype.Component;
 
 /**
  * @author Diego
  *
  */
+@Entity
+@Table(name = "PRODUCTOS")
 @Component("unProducto")
 public class Producto {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "codigo")
 	private int codigo;
+	@Column(name = "nombre_producto")
 	private String nombre;
+	@Column(name = "precio")
 	private double precio;
+	@Column(name = "marca")
 	private String marca;
+	@Column(name = "stock")
 	private int stock;
 	
 	public Producto() {
